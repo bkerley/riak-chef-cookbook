@@ -27,7 +27,7 @@ end
 
 template "#{node['riak']['package']['config_dir']}/riak.conf" do
   source 'riak.conf.erb'
-  variables config: node['riak']['config']
+  variables :config => node['riak']['config']
   owner "root"
   mode 0644
   notifies :restart, 'service[riak]'
