@@ -25,11 +25,12 @@ else
   include_recipe "riak::enterprise_package"
 end
 
-file "#{node['riak']['package']['config_dir']}/app.config" do
-  content Eth::Config.new(node['riak']['config'].to_hash).pp
+template "#{node['riak']['package']['config_dir']}/riak.conf" do
+  source 'riak.conf.erb'
+  variables config: node['riak']['config']
   owner "root"
   mode 0644
-  notifies :restart, "service[riak]"
+  notifies :restart, 'service[riak]'
 end
 
 file "#{node['riak']['package']['config_dir']}/vm.args" do
