@@ -60,10 +60,12 @@ execute "riak-src-install" do
   not_if { File.directory?("#{node['riak']['source']['prefix']}/riak") }
 end
 
-file "#{node['riak']['source']['config_dir']}/app.config" do
-  content Eth::Config.new(node['riak']['config'].to_hash).pp
+template "#{node['riak']['package']['config_dir']}/riak.conf" do
+  source 'riak.conf.erb'
+  variables config: node['riak']['config']
   owner "root"
   mode 0644
+  notifies :restart, 'service[riak]'
 end
 
 file "#{node['riak']['source']['config_dir']}/vm.args" do

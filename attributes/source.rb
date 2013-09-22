@@ -17,9 +17,9 @@
 # limitations under the License.
 #
 default['riak']['source']['url'] = "http://s3.amazonaws.com/downloads.basho.com/riak"
-default['riak']['source']['version']['major'] = "1"
-default['riak']['source']['version']['minor'] = "4"
-default['riak']['source']['version']['incremental'] = "2"
+default['riak']['source']['version']['major'] = "2"
+default['riak']['source']['version']['minor'] = "0"
+default['riak']['source']['version']['incremental'] = "0pre1"
 default['riak']['source']['prefix'] = "/usr/local"
 default['riak']['source']['config_dir'] = node['riak']['source']['prefix'] + "/riak/etc"
 
