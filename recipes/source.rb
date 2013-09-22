@@ -65,7 +65,6 @@ template "#{node['riak']['package']['config_dir']}/riak.conf" do
   variables :config => node['riak']['config']
   owner "root"
   mode 0644
-  notifies :restart, 'service[riak]'
 end
 
 file "#{node['riak']['source']['config_dir']}/vm.args" do
