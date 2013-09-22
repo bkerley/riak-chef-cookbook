@@ -39,7 +39,11 @@ user "riak" do
 end
 
 remote_file "#{Chef::Config[:file_cache_path]}/#{source_filename}" do
-  source source_uri + source_filename
+  if node['riak']['source']['actual_url']
+    source node['riak']['source']['actual_url']
+  else
+    source source_uri + source_filename
+  end
   owner "root"
   mode 0644
   not_if { File.exists?("#{Chef::Config[:file_cache_path]}/#{source_filename}") && Digest::SHA256.file("#{Chef::Config[:file_cache_path]}/#{source_filename}").hexdigest == node['riak']['source']['checksum'] }
