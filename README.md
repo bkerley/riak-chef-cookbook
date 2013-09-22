@@ -3,6 +3,12 @@ Riak Cookbook
 [![Build Status](https://recipe-tester.com/repo/basho/riak-chef-cookbook/badge.png)](https://recipe-tester.com/repo/basho/riak-chef-cookbook/)
 [![Build Status](https://travis-ci.org/basho/riak-chef-cookbook.png)](https://travis-ci.org/basho/riak-chef-cookbook)
 
+DIRE WARNING
+============
+
+This is a hacked and barely-tested version for Riak 2. It's every kind of
+unsupported and unstable. Use at your own risk!
+
 Overview
 ========
 
